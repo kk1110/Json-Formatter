@@ -1,6 +1,6 @@
 .container{
     background-color:aliceblue;
-    height:100vh;
+    height:85vh;
     align-items:center;
     margin:0;
     display:grid;
@@ -16,12 +16,13 @@
     padding:20px;
     margin:0;
     cursor: pointer;
-    resize: none;
+    resize:none;
     font-family: monospace;
     background-color:antiquewhite;
 }
 
 .buttons{
+    margin-top: 10px;
     display:flex;
     justify-content:center;
 }
