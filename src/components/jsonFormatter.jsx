@@ -4,6 +4,7 @@ import "./jsonFormatter.css";
 export default function JsonFormatter() {
   const [input, getInput] = useState(" ");
 
+
   //to stringify JSON;
   const stringify = (input) => {
     //if input has string
