@@ -13,12 +13,12 @@ export default function JsonFormatter() {
 
     //if input has number or boolean
     if (typeof input === "number" || typeof input === "boolean") {
-      return `${input}\n`;
+      return `${input}`;
     }
 
     //if input has array
     if (Array.isArray(input)) {
-      let res = "[";
+      let res = "[   ";
       for (let i = 0; i < input.length; i++) {
         res += `\n${stringify(input[i])}\n`;
       }
@@ -29,9 +29,9 @@ export default function JsonFormatter() {
     //if input has objects
     let res = "{\n";
     for (let key in input) {
-      res += `"${key}":${stringify(input[key])}\n`;
+      res += `  "${key}":${stringify(input[key])}\n`;
     }
-    res = `${res.substring(0, res.length - 1)}\n}\n`;
+    res = `${res.substring(0, res.length - 1)}\n}`;
     return res;
   };
 
@@ -46,7 +46,13 @@ export default function JsonFormatter() {
     const output = isJson(input)
       ? stringify(JSON.parse(input))
       : "Invalid Input";
-    document.getElementsByTagName("textarea")[1].value=output;
+
+    const outputArea = document.getElementsByTagName("textarea")[1];
+
+    outputArea.value = output
+      .split("\n")
+      .map((line, i) => `${i + 1} ${line}`)
+      .join("\n");
   };
 
   //this function will check whether the input is JSON or not
@@ -63,6 +69,7 @@ export default function JsonFormatter() {
   const handleClear = () => {
     document.getElementsByTagName("textarea")[0].value = "";
     document.getElementsByTagName("textarea")[1].value = "";
+    document.getElementsByTagName("textarea")[2].value = "";
   };
 
   return (
@@ -71,7 +78,7 @@ export default function JsonFormatter() {
         <button className="format-button" onClick={handleFormat}>
           Format JSON
         </button>
-        
+
         <button className="clear-button " onClick={handleClear}>
           Clear Data
         </button>
@@ -82,12 +89,13 @@ export default function JsonFormatter() {
           onChange={handleInput}
           placeholder="Enter your JSON here..."
         />
-        <textarea
-          className="large-area output"
-          placeholder="your formatted JSON will be appear here..."
-          readOnly={true}
-        >
-        </textarea>
+        <div className="output-container">
+          <textarea
+            className="large-area output"
+            readOnly={true}
+            placeholder="your formatted JSON will be appear here..."
+          ></textarea>
+        </div>
       </div>
     </div>
   );

@@ -10,6 +10,14 @@
     gap: 10px;
 }
 
+.output-container{
+    height:100%;
+    width:100%;
+    display :inline-flex
+}
+
+
+
 .large-area{
     height:100%;
     width:100%;
@@ -23,7 +31,6 @@
     background-color:antiquewhite;
     display:flex;
 }
-
 
 
 
