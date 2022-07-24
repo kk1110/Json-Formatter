@@ -5,36 +5,37 @@ export default function JsonFormatter() {
   const [input, getInput] = useState(" ");
 
   //to stringify JSON;
-  const stringify=(input)=>{
-    //if input has string 
-   if(typeof input === "string"){
-    return `"${input}"`
-   }
-
-   //if input has number or boolean
-   if(typeof input === "number" || typeof input === "boolean"){
-    return `${input}\n`
-   }
-
-   //if input has array
-   if(Array.isArray(input)){
-    let res="[\n";
-    for(let i=0; i<input.length; i++){
-      res+=`\n${stringify(input[i])}`;
+  const stringify = (input) => {
+    //if input has string
+    if (typeof input === "string") {
+      return `"${input}"`;
     }
-    res=`${res.substring(0, res.length-1)}]`;
+
+    //if input has number or boolean
+    if (typeof input === "number" || typeof input === "boolean") {
+      return `${input}\n`;
+    }
+
+    //if input has array
+    if (Array.isArray(input)) {
+      let res = "[\n";
+      for (let i = 0; i < input.length; i++) {
+        res += `\n${stringify(input[i])}`;
+      }
+      res = `${res.substring(0, res.length - 1)}]`;
+      return res;
+    }
+
+    //if input has objects
+    let res = "{\n";
+    for (let key in input) {
+      res += `"${key}":${stringify(input[key])}\n`;
+    }
+    res = `${res.substring(0, res.length - 1)}}\n`;
     return res;
-   }
+  };
 
-   //if input has objects
-   let res="{\n";
-   for(let key in input){
-    res+=`"${key}":${stringify(input[key])}\n`;
-   }
-   res=`${res.substring(0,res.length-1)}}\n`;
-   return res;
-  }
-
+  
   //This functioin will get an input from the user
   const handleInput = (e) => {
     const userInput = e.target.value;
@@ -46,7 +47,7 @@ export default function JsonFormatter() {
     const output = isJson(input)
       ? stringify(JSON.parse(input))
       : "Invalid Input";
-    const outputArea=document.getElementsByTagName("textarea")[1];
+    const outputArea = document.getElementsByTagName("textarea")[1];
     outputArea.value = output;
   };
 

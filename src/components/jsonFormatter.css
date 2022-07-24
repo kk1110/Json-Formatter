@@ -22,15 +22,6 @@
 }
 
 
-.output span{
-    counter-increment:linenumber;
-}
-.output span ::before{
-    content: counter(linenumber);
-    display: block;
-    color:#506882;
-}
-
 .buttons{
     margin-top: 10px;
     display:flex;
