@@ -69,7 +69,6 @@ export default function JsonFormatter() {
   const handleClear = () => {
     document.getElementsByTagName("textarea")[0].value = "";
     document.getElementsByTagName("textarea")[1].value = "";
-    document.getElementsByTagName("textarea")[2].value = "";
   };
 
   return (
