@@ -18,11 +18,11 @@ export default function JsonFormatter() {
 
     //if input has array
     if (Array.isArray(input)) {
-      let res = "[\n";
+      let res = "[";
       for (let i = 0; i < input.length; i++) {
-        res += `\n${stringify(input[i])}`;
+        res += `\n${stringify(input[i])}\n`;
       }
-      res = `${res.substring(0, res.length - 1)}]`;
+      res = `${res.substring(0, res.length - 1)}\n]`;
       return res;
     }
 
@@ -31,11 +31,10 @@ export default function JsonFormatter() {
     for (let key in input) {
       res += `"${key}":${stringify(input[key])}\n`;
     }
-    res = `${res.substring(0, res.length - 1)}}\n`;
+    res = `${res.substring(0, res.length - 1)}\n}\n`;
     return res;
   };
 
-  
   //This functioin will get an input from the user
   const handleInput = (e) => {
     const userInput = e.target.value;
@@ -47,8 +46,7 @@ export default function JsonFormatter() {
     const output = isJson(input)
       ? stringify(JSON.parse(input))
       : "Invalid Input";
-    const outputArea = document.getElementsByTagName("textarea")[1];
-    outputArea.value = output;
+    document.getElementsByTagName("textarea")[1].value=output;
   };
 
   //this function will check whether the input is JSON or not
@@ -73,6 +71,7 @@ export default function JsonFormatter() {
         <button className="format-button" onClick={handleFormat}>
           Format JSON
         </button>
+        
         <button className="clear-button " onClick={handleClear}>
           Clear Data
         </button>
@@ -85,9 +84,10 @@ export default function JsonFormatter() {
         />
         <textarea
           className="large-area output"
+          placeholder="your formatted JSON will be appear here..."
           readOnly={true}
-          placeholder="your formatted JSON will appear here..."
-        ></textarea>
+        >
+        </textarea>
       </div>
     </div>
   );

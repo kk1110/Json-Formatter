@@ -2,24 +2,29 @@
     background-color:aliceblue;
     height:85vh;
     align-items:center;
+    display :flex;
     margin:0;
     display:grid;
     grid-template-columns: 1fr 1fr;
     padding: 20px;
     gap: 10px;
 }
+
 .large-area{
     height:100%;
+    width:100%;
     box-sizing: border-box;
     border-radius:10px;
-    border:1px solid;
     padding:20px;
-    margin:0;
-    cursor: pointer;
+    cursor:pointer;
     resize:none;
-    font-family: monospace;
+    background-color:transparent;
+    font-family:monospace;
     background-color:antiquewhite;
+    display:flex;
 }
+
+
 
 
 .buttons{
