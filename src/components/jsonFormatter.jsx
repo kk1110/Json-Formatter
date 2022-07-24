@@ -4,6 +4,36 @@ import "./jsonFormatter.css";
 export default function JsonFormatter() {
   const [input, getInput] = useState(" ");
 
+  //to stringify JSON;
+  const stringify=(input)=>{
+    //if input has string 
+   if(typeof input === "string"){
+    return `"${input}"`
+   }
+
+   //if input has number or boolean
+   if(typeof input === "number" || typeof input === "boolean"){
+    return `${input}\n`
+   }
+
+   //if input has array
+   if(Array.isArray(input)){
+    let res="[\n";
+    for(let i=0; i<input.length; i++){
+      res+=`\n${stringify(input[i])}`;
+    }
+    res=`${res.substring(0, res.length-1)}]`;
+    return res;
+   }
+
+   //if input has objects
+   let res="{\n";
+   for(let key in input){
+    res+=`"${key}":${stringify(input[key])}\n`;
+   }
+   res=`${res.substring(0,res.length-1)}}\n`;
+   return res;
+  }
 
   //This functioin will get an input from the user
   const handleInput = (e) => {
@@ -14,9 +44,10 @@ export default function JsonFormatter() {
   //this will format the JSON prettier when clicking format button and show it on output area
   const handleFormat = () => {
     const output = isJson(input)
-      ? JSON.stringify(JSON.parse(input), null, 1)
+      ? stringify(JSON.parse(input))
       : "Invalid Input";
-    document.getElementsByTagName("textarea")[1].value = output;
+    const outputArea=document.getElementsByTagName("textarea")[1];
+    outputArea.value = output;
   };
 
   //this function will check whether the input is JSON or not
