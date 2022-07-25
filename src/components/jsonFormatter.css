@@ -1,65 +1,65 @@
-.container{
-    background-color:aliceblue;
-    height:85vh;
-    align-items:center;
-    display :flex;
-    margin:0;
-    display:grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 20px;
-    gap: 10px;
+.container {
+  background-color: aliceblue;
+  height: 85vh;
+  align-items: center;
+  display: flex;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 20px;
+  gap: 10px;
 }
 
-.output-container{
-    height:100%;
-    width:100%;
-    display :inline-flex
+.output-container {
+  height: 100%;
+  width: 100%;
 }
 
-
-
-.large-area{
-    height:100%;
-    width:100%;
-    box-sizing: border-box;
-    border-radius:10px;
-    padding:20px;
-    cursor:pointer;
-    resize:none;
-    background-color:transparent;
-    font-family:monospace;
-    background-color:antiquewhite;
-    display:flex;
+.large-area {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 20px;
+  cursor: pointer;
+  resize: none;
+  background-color: transparent;
+  font-family: monospace;
+  background-color: antiquewhite;
+  display: flex;
 }
 
-
-
-.buttons{
-    margin-top: 10px;
-    display:flex;
-    justify-content:center;
+.large-area:focus {
+  transform: scale(1.03, 1.03);
+  transform-style: preserve-3d;
 }
 
-.format-button,.clear-button{
-    border-radius: 5px;
-    padding:5px;
-    color:#fff;
-    font-size: 15px;
-    cursor:pointer;
-}
-.format-button:active{
-    background-color:rgb(14, 132, 14);
-}
-.clear-button:active{
-    background-color:rgb(158, 11, 11);
+.buttons {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
 }
 
-.format-button{
-    background-color: #4CAF50;
-    margin-right: 5px;
+.format-button,
+.clear-button {
+  border-radius: 5px;
+  padding: 5px;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+}
+.format-button:active {
+  background-color: rgb(14, 132, 14);
+}
+.clear-button:active {
+  background-color: rgb(158, 11, 11);
 }
 
-.clear-button{
-    background-color:#f44336;
+.format-button {
+  background-color: #4caf50;
+  margin-right: 5px;
 }
 
+.clear-button {
+  background-color: #f44336;
+}
