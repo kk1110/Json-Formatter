@@ -10,10 +10,6 @@
   gap: 10px;
 }
 
-.output-container {
-  height: 100%;
-  width: 100%;
-}
 
 .large-area {
   height: 100%;
@@ -26,7 +22,6 @@
   background-color: transparent;
   font-family: monospace;
   background-color: antiquewhite;
-  display: flex;
 }
 
 .large-area:focus {
@@ -60,6 +55,27 @@
   margin-right: 5px;
 }
 
+.output{
+  margin-top:0;
+  white-space:wrap;
+  display: inline-block;
+  color :black;
+  font-weight:3px;
+}
 .clear-button {
   background-color: #f44336;
+}
+
+.string{
+  color:green
+}
+
+.boolean,.number{
+  color:red
+}
+
+pre{
+  display:inline;
+  margin: 0;
+  padding-top: 0;
 }
