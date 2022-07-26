@@ -22,12 +22,12 @@ export default function JsonFormatter() {
       for (let i = 0; i < input.length; i++) {
         res += `${stringify(input[i])}\n`;
       }
-      res = `<span>` + res.substring(0, res.length - 1) + `]` + `<span/>`;
+      res = `<span>` + res.substring(0, res.length ) + `]` + `<span/>`;
       return res;
     }
 
     //if input has objects
-    let res = "{\n";
+    let res = "\n{\n";
     for (let key in input) {
       res += `    "${key}": ${stringify(input[key])}\n`;
     }
@@ -49,9 +49,9 @@ export default function JsonFormatter() {
   
 
     let outputArea = document.querySelector("div.output");
-    outputArea.innerHTML = output
+    outputArea.innerHTML = output.replace("\n","")
       .split("\n")
-      .map((line, i) => `${i + 1} ${line}`)
+      .map((line, i) => `${i + 1} ${ line}`)
       .join("\n");
   };
   

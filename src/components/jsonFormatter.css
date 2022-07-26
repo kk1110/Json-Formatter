@@ -60,19 +60,22 @@
   white-space:wrap;
   display: inline-block;
   color :black;
-  font-weight:3px;
+  font-weight:700;
 }
 .clear-button {
   background-color: #f44336;
 }
 
 .string{
-  color:green
+  color:green;
+  font-weight:normal;
 }
 
 .boolean,.number{
-  color:red
+  color:red;
+  font-weight:normal
 }
+
 
 pre{
   display:inline;
